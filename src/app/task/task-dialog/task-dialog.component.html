@@ -1,0 +1,71 @@
+<div class="addContainer">
+    <div class="modalHeader">
+        <div class="editRowModal">
+            <div class="modalHeader clearfix">
+                <div class="modal-about">
+                    {{dialogTitle}}
+                </div>
+            </div>
+        </div>
+        <button mat-icon-button (click)="dialogRef.close()" class="modal-close-button" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content>
+        <form class="register-form m-4" [formGroup]="taskForm" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name">
+                        <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
+                        <mat-error *ngIf="taskForm.get('name')?.hasError('required')">
+                            Name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Task Category</mat-label>
+                        <mat-select formControlName="category">
+                            <mat-option *ngFor="let c of category; let i = index" [value]="c">{{c}}</mat-option>
+                        </mat-select>
+                        <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>category</mat-icon>
+                        <mat-error *ngIf="taskForm.get('category')?.hasError('required')">
+                            Category is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Task Status</mat-label>
+                        <mat-select formControlName="status">
+                            <mat-option *ngFor="let s of status; let i = index" [value]="s">{{s}}</mat-option>
+                        </mat-select>
+                        <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>status</mat-icon>
+                        <mat-error *ngIf="taskForm.get('category')?.hasError('required')">
+                            Status is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                    <mat-form-field class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+            </div>
+            <div class="row">
+                <button type="submit" mat-raised-button class="auth-form-btn" color="primary">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

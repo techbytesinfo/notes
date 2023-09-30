@@ -1,0 +1,64 @@
+<div class="addContainer">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <!-- <img [src]='advanceTable.img' alt="avatar"> -->
+          <div class="modal-about">
+            {{dialogTitle}}
+          </div>
+        </div>
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" class="modal-close-button" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <form class="register-form m-4" [formGroup]="todosForm" (ngSubmit)="submit">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name">
+              <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
+              <mat-error *ngIf="todosForm.get('name')?.hasError('required')">
+                 Name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Documentation or File path</mat-label>
+                <textarea matInput formControlName="document"></textarea>
+                <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>document</mat-icon>
+                <mat-error *ngIf="todosForm.get('document')?.hasError('required')">
+                   document is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                  <mat-option *ngFor="let c of category; let i = index" [value]="c">{{c}}</mat-option>
+                </mat-select>
+                <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>category</mat-icon>
+                <mat-error *ngIf="todosForm.get('category')?.hasError('required')">
+                   Category is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" mat-raised-button class="auth-form-btn" color="primary" (click)="submit()">
+              Submit
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+  

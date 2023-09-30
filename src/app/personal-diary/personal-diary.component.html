@@ -1,0 +1,18 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Diary'" [items]="['Home','Extra']" [active_item]="'Tasks'">
+            </app-breadcrumb>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <form [formGroup]="userForm">
+                    <sfc-input [name]="'firstName'" [type]="'text'" [placeholder]="'First name'" [control]="userForm.controls['firstName']" required></sfc-input>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

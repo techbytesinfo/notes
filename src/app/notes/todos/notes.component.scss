@@ -1,0 +1,27 @@
+.mat-column-id {
+    min-width: 5%;
+}
+.mat-column-date {
+    min-width: 10%;
+}
+
+.mat-column-name {
+    min-width: 25%;
+}
+
+.mat-column-document {
+    min-width:50%;
+}
+
+.mat-column-actions {
+    min-width:10%;
+}
+
+.align-center {
+    text-align: center;
+    padding: 10px 0;
+}
+.content-copy {
+    margin-left: 10px;
+    cursor: pointer;
+}
