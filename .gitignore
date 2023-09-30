@@ -1,0 +1,5 @@
+.vs
+.angular
+node_modules
+dist
+__MACOSX

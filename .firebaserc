@@ -1,0 +1,19 @@
+{
+  "projects": {
+    "default": "notelist-d64b7",
+    "notelist": "notelist-d64b7"
+  },
+  "targets": {
+    "notelist-d64b7": {
+      "hosting": {
+        "notelist": [
+          "notelist-d64b7"
+        ],
+        "notelist-d64b7": [
+          "notelist-d64b7.appspot.com"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
