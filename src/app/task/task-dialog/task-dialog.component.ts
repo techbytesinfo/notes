@@ -79,16 +79,31 @@ export class TaskDialogComponent implements OnInit {
       status: this.taskForm.controls["status"].value as string
     };
     if (this.taskForm.valid) {
+      
+      if (this.data.action === 'add') {
       this.taskService
         .addTasks(formValue)
         .then((data) => {
-         this.snackbar.open('Task added successfully', 'close', {
-            duration: 2000
+          this.snackbar.open("Task added successfully", "close", {
+            duration: 2000,
           });
         })
         .catch((error) => {
           console.log("error", error);
         });
+      } else {
+        this.taskService
+        .updateTasks(this.data.taskData.id as any, formValue)
+        .then((data) => {
+          this.snackbar.open("Task updated successfully", "close", {
+            duration: 2000,
+          });
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+      }
+  
       this.dialogRef.close(formValue);
     }
   }
